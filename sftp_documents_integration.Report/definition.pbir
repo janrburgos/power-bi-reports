@@ -1,9 +1,0 @@
-{
-  "version": "1.0",
-  "datasetReference": {
-    "byPath": {
-      "path": "../sftp_documents_integration.Dataset"
-    },
-    "byConnection": null
-  }
-}
