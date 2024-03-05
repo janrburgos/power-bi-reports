@@ -1,0 +1,58 @@
+table ship_sets
+	lineageTag: 1a409f15-2be6-46a0-853e-eb362e9d44cb
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5aa9aa46-a67b-4145-b93c-dfd3babbd238
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Created At'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bb982c76-c198-4428-96ae-5950fad9f09d
+		summarizeBy: none
+		sourceColumn: Created At
+
+		variation Variation
+			isDefault
+			relationship: 9b89bfc6-fff6-428e-bf3e-f99b45dfe159
+			defaultHierarchy: LocalDateTable_0f460cfe-8e05-4437-b14f-a977681813ad.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Number'
+		dataType: string
+		lineageTag: 96a6b26e-8486-4531-a1f1-94c2f76e4465
+		summarizeBy: none
+		sourceColumn: Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reference Number'
+		dataType: string
+		lineageTag: 107fa24b-1760-43a6-80d1-c3927731d303
+		summarizeBy: none
+		sourceColumn: Reference Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ship_sets = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"523c73c9-e8c6-4dc9-a68b-03117c0ff293" = Workspaces{[workspaceId="523c73c9-e8c6-4dc9-a68b-03117c0ff293"]}[Data],
+				    #"c5a9e502-130c-4858-8bb6-00c11de8f806" = #"523c73c9-e8c6-4dc9-a68b-03117c0ff293"{[dataflowId="c5a9e502-130c-4858-8bb6-00c11de8f806"]}[Data],
+				    ship_sets_ = #"c5a9e502-130c-4858-8bb6-00c11de8f806"{[entity="ship_sets",version=""]}[Data]
+				in
+				    ship_sets_
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

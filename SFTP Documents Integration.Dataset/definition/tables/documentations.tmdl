@@ -1,0 +1,35 @@
+table documentations
+	lineageTag: 9f465a43-40f0-4544-83ef-b54d32198354
+
+	column ship_set_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 70843c78-241a-4eb0-bbff-43f8af5c2735
+		summarizeBy: sum
+		sourceColumn: ship_set_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column document_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4521022b-3f76-474b-af6c-aa9ef9190b06
+		summarizeBy: sum
+		sourceColumn: document_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition documentations = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"523c73c9-e8c6-4dc9-a68b-03117c0ff293" = Workspaces{[workspaceId="523c73c9-e8c6-4dc9-a68b-03117c0ff293"]}[Data],
+				    #"c5a9e502-130c-4858-8bb6-00c11de8f806" = #"523c73c9-e8c6-4dc9-a68b-03117c0ff293"{[dataflowId="c5a9e502-130c-4858-8bb6-00c11de8f806"]}[Data],
+				    documentations_ = #"c5a9e502-130c-4858-8bb6-00c11de8f806"{[entity="documentations",version=""]}[Data]
+				in
+				    documentations_
+
+	annotation PBI_ResultType = Table
+

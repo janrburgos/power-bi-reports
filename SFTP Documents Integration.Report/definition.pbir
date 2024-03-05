@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../SFTP Documents Integration.Dataset"
+    },
+    "byConnection": null
+  }
+}

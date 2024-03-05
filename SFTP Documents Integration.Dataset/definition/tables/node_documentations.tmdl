@@ -1,0 +1,35 @@
+table node_documentations
+	lineageTag: 47f622ba-3d12-4d3a-a372-b594c0134534
+
+	column node_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 366d7e4c-8cd7-4fb7-bfc7-9c1d535df15d
+		summarizeBy: sum
+		sourceColumn: node_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column document_id
+		dataType: int64
+		formatString: 0
+		lineageTag: fefa3257-a2e7-4ba1-b473-c1aff93530a1
+		summarizeBy: sum
+		sourceColumn: document_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition node_documentations = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"523c73c9-e8c6-4dc9-a68b-03117c0ff293" = Workspaces{[workspaceId="523c73c9-e8c6-4dc9-a68b-03117c0ff293"]}[Data],
+				    #"c5a9e502-130c-4858-8bb6-00c11de8f806" = #"523c73c9-e8c6-4dc9-a68b-03117c0ff293"{[dataflowId="c5a9e502-130c-4858-8bb6-00c11de8f806"]}[Data],
+				    node_documentations_ = #"c5a9e502-130c-4858-8bb6-00c11de8f806"{[entity="node_documentations",version=""]}[Data]
+				in
+				    node_documentations_
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,34 @@
+table hawb_numbers
+	lineageTag: b23cc62f-4a95-4104-97f0-fa968ebd7ad5
+
+	column shipment_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 77f7123a-089c-46e6-9c84-7a784660fe68
+		summarizeBy: sum
+		sourceColumn: shipment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HAWB Number'
+		dataType: string
+		lineageTag: 2e1f2550-f468-484f-89e3-eb23e1cce923
+		summarizeBy: none
+		sourceColumn: HAWB Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition hawb_numbers = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"523c73c9-e8c6-4dc9-a68b-03117c0ff293" = Workspaces{[workspaceId="523c73c9-e8c6-4dc9-a68b-03117c0ff293"]}[Data],
+				    #"c5a9e502-130c-4858-8bb6-00c11de8f806" = #"523c73c9-e8c6-4dc9-a68b-03117c0ff293"{[dataflowId="c5a9e502-130c-4858-8bb6-00c11de8f806"]}[Data],
+				    hawb_numbers_ = #"c5a9e502-130c-4858-8bb6-00c11de8f806"{[entity="hawb_numbers",version=""]}[Data]
+				in
+				    hawb_numbers_
+
+	annotation PBI_ResultType = Table
+
