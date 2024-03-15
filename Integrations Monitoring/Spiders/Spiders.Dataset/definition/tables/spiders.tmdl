@@ -1,0 +1,44 @@
+table spiders
+	lineageTag: 865cb54a-5d9b-433b-bf48-14e3968f0964
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 522c2156-7d92-469a-95de-5f3ea1ce3c4e
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column code
+		dataType: string
+		lineageTag: 368167ea-3665-41cf-b1a0-0cb9753a981f
+		summarizeBy: none
+		sourceColumn: code
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 0ae469b9-c4f0-457c-ad87-a19196ccd183
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition spiders = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"523c73c9-e8c6-4dc9-a68b-03117c0ff293" = Workspaces{[workspaceId="523c73c9-e8c6-4dc9-a68b-03117c0ff293"]}[Data],
+				    #"b2d4b7bd-eb96-41d5-a024-aa53c13b0d55" = #"523c73c9-e8c6-4dc9-a68b-03117c0ff293"{[dataflowId="b2d4b7bd-eb96-41d5-a024-aa53c13b0d55"]}[Data],
+				    spiders_ = #"b2d4b7bd-eb96-41d5-a024-aa53c13b0d55"{[entity="spiders",version=""]}[Data]
+				in
+				    spiders_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

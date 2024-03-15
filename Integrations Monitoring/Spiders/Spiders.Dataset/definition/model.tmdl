@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["crawls","spiders","supply_chain_spiders","supply_chains"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.126.1261.0 (24.02)
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table crawls
+ref table DateTableTemplate_8a882c56-92a9-4b53-b9e9-5bf832de1d43
+ref table LocalDateTable_feef3334-6970-41d5-af78-e8dffab61929
+ref table spiders
+ref table supply_chain_spiders
+ref table supply_chains
+

@@ -1,0 +1,44 @@
+table supply_chains
+	lineageTag: 647e3f10-d33e-4a8c-a0f3-03b2bea8fbe2
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: d3b8f23f-c482-49ac-9fc3-de60ca67b6f2
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column code
+		dataType: string
+		lineageTag: c7fa2320-d34e-440a-94da-65d16909bce6
+		summarizeBy: none
+		sourceColumn: code
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: e0ae2027-3894-45d5-84e1-10760212ee8c
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition supply_chains = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"523c73c9-e8c6-4dc9-a68b-03117c0ff293" = Workspaces{[workspaceId="523c73c9-e8c6-4dc9-a68b-03117c0ff293"]}[Data],
+				    #"b2d4b7bd-eb96-41d5-a024-aa53c13b0d55" = #"523c73c9-e8c6-4dc9-a68b-03117c0ff293"{[dataflowId="b2d4b7bd-eb96-41d5-a024-aa53c13b0d55"]}[Data],
+				    supply_chains_ = #"b2d4b7bd-eb96-41d5-a024-aa53c13b0d55"{[entity="supply_chains",version=""]}[Data]
+				in
+				    supply_chains_
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,17 @@
+relationship fa82b557-db24-42c6-82db-a30d8c48a79f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: crawls.created_at
+	toColumn: LocalDateTable_feef3334-6970-41d5-af78-e8dffab61929.Date
+
+relationship 901f93d4-3bda-4cdf-ae1f-e8acc772fbff
+	fromColumn: supply_chain_spiders.spider_id
+	toColumn: spiders.id
+
+relationship 09141323-a9a8-4ae5-b36d-01e9046c5d12
+	fromColumn: supply_chain_spiders.supply_chain_id
+	toColumn: supply_chains.id
+
+relationship dc96d9df-0cd9-46a0-8bb0-5ab18f408770
+	fromColumn: crawls.supply_chain_spider_id
+	toColumn: supply_chain_spiders.id
+
