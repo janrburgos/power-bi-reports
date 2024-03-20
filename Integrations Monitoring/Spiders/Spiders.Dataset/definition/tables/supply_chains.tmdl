@@ -38,7 +38,5 @@ table supply_chains
 				in
 				    supply_chains_
 
-	annotation PBI_NavigationStepName = Navigation
-
 	annotation PBI_ResultType = Table
 
