@@ -2,9 +2,137 @@ culture en-US
 
 	linguisticMetadata =
 			{
-			  "Version": "1.0.0",
+			  "Version": "2.0.0",
 			  "Language": "en-US",
-			  "DynamicImprovement": "HighConfidence"
+			  "DynamicImprovement": "HighConfidence",
+			  "Entities": {
+			    "supply_chains.name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "supply_chains",
+			          "ConceptualProperty": "name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Supply Chain": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "crawls.tracking_number": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "crawls",
+			          "ConceptualProperty": "tracking_number"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Tracking Number": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "crawls.crawl_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "crawls",
+			          "ConceptualProperty": "crawl_status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Crawl Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "crawls.notes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "crawls",
+			          "ConceptualProperty": "notes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Notes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "crawls.created_at": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "crawls",
+			          "ConceptualProperty": "created_at"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Crawled At": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "spiders.name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "spiders",
+			          "ConceptualProperty": "name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Spider": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
 			}
 		contentType: json
 
